@@ -9,11 +9,14 @@ public class Main {
         return new_array;
     }
 
+
     public static void main(String[] args){
         QuantQueue<Integer> x = new QuantQueue<>(Integer.class);
 
-        System.out.println(x.tail);
-        x.printArray();
+        System.out.println(x.isEmpty());
+        //x.push(1);
+        //System.out.println(x.tail);
+        //x.printArray();
 //        int[] src = new int[5];
 //        int[] dest = new int[10];
 //        src = fillArray(src);

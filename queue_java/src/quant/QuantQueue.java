@@ -48,9 +48,18 @@ public class QuantQueue<Type>{
         tail++;
     }
 
-//    public Type front(){}
-//    public Type back(){}
-//    public Boolean isEmpty(){}
+    public Type front(){return array[head];}
+    public Type back(){return array[tail];}
+    public Boolean isEmpty(){
+        boolean flag = true;
+        for (Type x : array) {
+            if (x != null) {
+                flag = false;
+                break;
+            }
+        }
+        return flag;
+    }
 //    public int size(){}
 //    public void emplace(final Type entry){}
 //    public Type pop(){}
