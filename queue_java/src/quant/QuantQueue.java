@@ -5,16 +5,22 @@ public class QuantQueue<Type>{
     public static int DEFAULT_SIZE = 5;
 
     private Type[] array;
-    private int head;
-    private int tail;
+    public int head;
+    public int tail;
+    public int size = DEFAULT_SIZE;
     private final Class<Type> type;
 
     public Type get(int index){return array[index];}
     public Type[] getQueue(){return array;}
 
     public void printArray(){
-        for (Type i : array){
-            System.out.print(i.toString() + " ");
+        for (Type x : array) {
+            if (x != null){
+                System.out.print(x);
+            }
+            else{
+                System.out.print("0");
+            }
         }
     }
 
@@ -24,23 +30,24 @@ public class QuantQueue<Type>{
         // This is sketch
         array = (Type[]) Array.newInstance(this.type, DEFAULT_SIZE);
         head = 0;
-        tail = DEFAULT_SIZE;
+        tail = 0;
     }
     @SuppressWarnings("unchecked")
     private void expandArray(int new_size){
         Type[] new_array = (Type[]) Array.newInstance(type, new_size);
-        // Remove literal indices and test
         System.arraycopy(array, 0, new_array, 0, array.length);
         array = new_array;
     }
 
     public void push(final Type entry){
-        if ((tail == DEFAULT_SIZE) && (head == 0)) {
-            expandArray(DEFAULT_SIZE * 2);
+        if ((tail == size) && (head == 0)) {
+            expandArray(DEFAULT_SIZE + size);
+            size = tail;
         }
-        tail++;
         array[tail] = entry;
+        tail++;
     }
+
 //    public Type front(){}
 //    public Type back(){}
 //    public Boolean isEmpty(){}
