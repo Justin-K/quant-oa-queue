@@ -2,8 +2,8 @@ package quant;
 import java.lang.reflect.Array;
 
 /**
- *
- * @param <Type>
+ * This class represents a dynamically-sized, single-ended FIFO queue data-structure.
+ * @param <Type> The data-type of the enqueued elements
  */
 public class QuantQueue<Type>{
     /**
